@@ -1,0 +1,35 @@
++Configuring SAMBA
+  # vi /etc/samba/smb.conf
+
+  -Edit this file
+    ## Line no 58 - Add the following lines below line 58 ##
+    unix charset = UTF-8
+    dos charset = CP932
+
+    ## Line no 75 - Change the to windows default workgroup ##
+    workgroup = WORKGROUP
+
+    ## Line no 81 - Uncomment and set the IP Range ##
+    hosts allow = 127. 192.168.1.
+
+    ## Line 102 - set no authentication ##
+    security = share
+
+    ## Add the following lines at the bottom ##
+      -Share to user or group
+        [E5Y4]
+          comment = E5Y4 Shared Directory
+          path = /home/E5Y4
+          valid users = @E5Y4
+          read only = No
+          create mask = 0770
+          directory mask = 0770
+      -Share to Everyone
+        [E5Y4]
+          comment = E5Y4 Shared Directory
+          path = /home/E5Y4
+          read only = No
+          create mask = 0777
+          directory mask = 0777
+          guest only = Yes
+          guest ok = Yes

@@ -1,0 +1,18 @@
++Installing SAMBA
+  # sudo yum -y install samba samba-client samba-common
+
++Directory Preparation
+  -Share to user or group
+    # mkdir /home/E5Y4
+    # chmod -R 770 /home/E5Y4
+    # chown -R root:E5Y4
+  -Share to Everyone
+    # mkdir /home/E5Y4
+    # chmod -R 777 /home/E5Y4
+
+Configure Samba
+Configure Samba to Firewall
+
++Start/Restart Service
+  # service smb [start/restart]
+  # service nmb [start/restart]

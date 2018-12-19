@@ -1,0 +1,25 @@
++Install SAMBA_SWAT
+  # sudo yum -y install xinetd samba_swat
+
++Configuring file
+  # vi /etc/xinetd.d/swat
+
+  -Edit this file
+    # default: off
+    # description: SWAT is the Samba Web Admin Tool. Use swat \
+    #              to configure your Samba server. To use SWAT, \
+    #              connect to port 901 with your favorite web browser.
+    service swat
+    {
+            disable = [no]
+            port            = 901
+            socket_type     = stream
+            wait            = no
+            only_from       = 127.0.0.1 [IP Address]/24
+            user            = root
+            server          = /usr/sbin/swat
+            log_on_failure  += USERID
+    }
+
++Start/Restart Service
+  # service xinetd [start/restart]
